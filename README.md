@@ -45,9 +45,13 @@ Steps involved in execution:
 
 1. Generate distribution system feeder populated with households with the choice of 'Household Type' by executing the following:
 
-   python IEEE123_glm_yaml_bat_writer.py NDistSys Mix Type
+   python DistributionFeederWriter.py DistFeederFileName FeederLoadFileName NDistSys Mix Type
    
    The above commands depend on the following user-specified parameters: 
+   
+   DistFeederFileName - The name of the distribution feeder file, e.g. IEEE123.glm, IEEE13.glm, etc
+   
+   FeederLoadFileName - The name of the file that has original feeder load details
    
    NDistSys - The number of distribution systems that are handled by the IDSO
    
@@ -65,7 +69,7 @@ Steps involved in execution:
    
    Set Type to 3 for High Structure Quality Type;
    
-   (Example usage: python IEEE123_glm_yaml_bat_writer.py 1 0 2)
+   (Example usage: python IEEE123_glm_yaml_bat_writer.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2)
     
 2. Generate required additional files by executing the following command:
    

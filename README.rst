@@ -45,7 +45,7 @@ Steps involved in execution:
 
 1. Generate distribution system feeder populated with households with the choice of 'Household Type' by executing the following:
 
-   python DistributionFeederWriter.py DistFeederFileName FeederLoadFileName NDistSys Mix Type
+   python DistributionFeederWriter.py DistFeederFileName FeederLoadFileName NDistSys Mix Type TxBus
    
    The above commands depend on the following user-specified parameters: 
    
@@ -63,13 +63,15 @@ Steps involved in execution:
 	 
    Type - Represents household's structure quality type; 
    
-   Set Type to 1 for Low Structure Quality Type;
+	   Set Type to 1 for Low Structure Quality Type;
+
+	   Set Type to 2 for Medium Structure Quality Type;
+
+	   Set Type to 3 for High Structure Quality Type;
+	   
+   TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This is needed if this model is used within an ITD system)
    
-   Set Type to 2 for Medium Structure Quality Type;
-   
-   Set Type to 3 for High Structure Quality Type;
-   
-   (Example usage: python DistributionFeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2)
+   (Example usage: python DistributionFeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1)
     
 2. Generate required additional files by executing the following command:
    

@@ -112,7 +112,7 @@ Steps involved in execution:
    
    Set C to 2 for generating test case outcomes for 'Test Case 3: IDSO Load Matching Capabilities'. Also set RefLoad
    
-   apidir - Set the path of HouseholdFormulationRepository folder to this parameter
+   DSDirectory - Set the path of this repository folder to DSDirectory
 	
 4. Run all the distribution system processes by executing the following command:
    runIDSO.bat

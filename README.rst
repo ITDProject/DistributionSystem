@@ -112,3 +112,7 @@ Steps involved in execution:
 	
 4. Run all the distribution system processes by executing the following command:
    runIDSO.bat
+   
+Special instructions to enable usage of this distribution system model as part of an ITD system.
+
+xxxxxxxxxx

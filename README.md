@@ -69,7 +69,7 @@ Steps involved in execution:
    
    Set Type to 3 for High Structure Quality Type;
    
-   (Example usage: python IEEE123_glm_yaml_bat_writer.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2)
+   (Example usage: python DistributionFeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2)
     
 2. Generate required additional files by executing the following command:
    

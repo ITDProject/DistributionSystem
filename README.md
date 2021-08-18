@@ -104,6 +104,8 @@ Steps involved in execution:
    
    NDistSys - Number of distribution systems monitored by the IDSO
    
+   DistFeederFileName - The name of the distribution feeder file given in Step 1 (without '.glm' extension), e.g. IEEE123, IEEE13, etc
+   
    C - Choose an appropriate case; 
    
    Set C to 0 for generating test case outcomes with a flat retail price. Also set FRP(cents/kWh) to user specified retail price 

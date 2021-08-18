@@ -87,7 +87,7 @@ Steps involved in execution:
    
    TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   (Example usage: python AgentPrep.py IEEEModified1 1)  
+   (Example usage: python AgentPrep.py IEEEModified1 1 1)  
     		
    Outcomes: FNCS configuration txt file and json registration files for IDSO and households.
    FNCS configuration txt file contains needed input information for configuring GridLAB-D subscriptions and publications. IDSO json file contains needed input information for the IDSO and Household json file contains household specific information (household attributes).

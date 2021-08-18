@@ -69,7 +69,7 @@ Steps involved in execution:
 
 	   Set Type to 3 for High Structure Quality Type;
 	   
-   TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This is needed if this model is used within an ITD system)
+   TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
    (Example usage: python DistributionFeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1)
     

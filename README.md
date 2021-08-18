@@ -77,17 +77,17 @@ Steps involved in execution:
     
 2. Generate required additional files by executing the following command:
    
-   python prep_agents123.py FileName NDistSys TxBus
+   python AgentPrep.py FileName NDistSys TxBus
    
    The above commands depend on the following user-specified parameters: 
    
-   FileName - The name of the distribution feeder generated in the above step (do not include .glm extension)
+   FileName - The name of the distribution feeder generated in the above step
    
    NDistSys - The number of distribution systems that are handled by the IDSO
    
    TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   (Example usage: python prep_agents123.py IEEEModified1 1)  
+   (Example usage: python AgentPrep.py IEEEModified1 1)  
     		
    Outcomes: FNCS configuration txt file and json registration files for IDSO and households.
    FNCS configuration txt file contains needed input information for configuring GridLAB-D subscriptions and publications. IDSO json file contains needed input information for the IDSO and Household json file contains household specific information (household attributes).

@@ -72,16 +72,20 @@ Steps involved in execution:
    TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
    (Example usage: python DistributionFeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1)
+   
+   Outcomes: Distribution feeder populated by houses and a 'Yaml' file for IDSO. IDSO yaml file would contain all necessary details required to communicate with distribution agents (and transmission agents if this model is used within an ITD). 
     
 2. Generate required additional files by executing the following command:
    
-   python prep_agents123.py FileName NDistSys 
+   python prep_agents123.py FileName NDistSys TxBus
    
    The above commands depend on the following user-specified parameters: 
    
    FileName - The name of the distribution feeder generated in the above step (do not include .glm extension)
    
    NDistSys - The number of distribution systems that are handled by the IDSO
+   
+   TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
    (Example usage: python prep_agents123.py IEEEModified1 1)  
     		

@@ -1,8 +1,8 @@
 # DistributionSystem
 
-The code/data in this repository are provided in support of ITD TES Platform that is developed as part of our ITD project. The details of this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
+This site gathers together ITD Project work on the modeling of distribution systems relevant for the modeling of Integrated Transmission and Distribution (ITD) systems.
 
-The developers of the code are Swathi Battula and Leigh Tesfatsion, with early assistance from Rohit Reddy Takkala.
+The code/data in this repository are provided in support of ITD TES Platform that is developed as part of our ITD project. The details of this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
 
 Currently, this repository is only supported on a Windows operating system.
 

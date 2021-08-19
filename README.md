@@ -1,4 +1,4 @@
-# DistributionSystemModels
+# DistributionSystemModel
 
 The code/data in this repository are provided in support of ITD TES Platform that is developed as part of our ITD project. The details of this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
 

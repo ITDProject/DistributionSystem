@@ -8,10 +8,6 @@ import os
 FeederFolder= "IEEE123"
 DistFeederPath = './DistributionFeeder/' + FeederFolder + "/"
 
-scedulesFolder= "schedules"
-scedulesPath = './DistributionFeeder/' + scedulesFolder + "/"
-
-
 InputFilesFolder = "./InputFiles/"
 if not os.path.exists(InputFilesFolder):
     os.makedirs(InputFilesFolder)
@@ -218,57 +214,60 @@ if DistFeederFileName.startswith('.'):
 
 feederName = DistFeederFileName.split('.')[0]
 glm = '.glm'
-
 #print('feederName: ', feederName)
+
+# scedulesFolder= "schedules"
+# scedulesPath = './DistributionFeeder/' + scedulesFolder + "/"
 
 for i in range(NDistSys):
 	feederHouse = feederName + 'Modified' + str(NDistSys) + glm
 	f4 = open(InputFilesFolder + feederHouse,'w')
     
-	print('#set minimum_timestep=300', file=f4)
-	print('#set profiler=1', file=f4)
-	print('#set randomseed=10', file=f4)
+	# print('#set minimum_timestep=300', file=f4)
+	# print('#set profiler=1', file=f4)
+	# print('#set randomseed=10', file=f4)
     
-	print('clock {', file=f4)
-	print('     timezone CST+6CDT;', file=f4)
-	print("     starttime '2016-07-26 00:00:00';", file=f4)
-	print("     stoptime '2016-07-29 06:00:00';", file=f4)
-	print('}', file=f4)
+	# print('clock {', file=f4)
+	# print('     timezone CST+6CDT;', file=f4)
+	# print("     starttime '2016-07-26 00:00:00';", file=f4)
+	# print("     stoptime '2016-07-29 06:00:00';", file=f4)
+	# print('}', file=f4)
     
-	print('module tape;', file=f4)
-	print('module connection;', file=f4)
-	print('module climate;', file=f4)
+	# print('module tape;', file=f4)
+	# print('module connection;', file=f4)
+	# print('module climate;', file=f4)
     
-	print('module powerflow {', file=f4)
-	print('     solver_method FBS;', file=f4)
-	print('     warning_undervoltage 0.95 pu;', file=f4)
-	print('     warning_overvoltage 1.05 pu;', file=f4)
-	print('     line_limits TRUE;', file=f4)
-	print('}', file=f4)
+	# print('module powerflow {', file=f4)
+	# print('     solver_method FBS;', file=f4)
+	# print('     warning_undervoltage 0.95 pu;', file=f4)
+	# print('     warning_overvoltage 1.05 pu;', file=f4)
+	# print('     line_limits TRUE;', file=f4)
+	# print('}', file=f4)
 
-	print('module residential {', file=f4)
-	print('     implicit_enduses NONE;', file=f4)
-	print('     ANSI_voltage_check TRUE;', file=f4)
-	print('}', file=f4)
+	# print('module residential {', file=f4)
+	# print('     implicit_enduses NONE;', file=f4)
+	# print('     ANSI_voltage_check TRUE;', file=f4)
+	# print('}', file=f4)
 
-	print('#include "'+ scedulesPath + 'appliance_schedules.glm";', file=f4)
-	print('#include "'+ scedulesPath + 'water_schedule.glm";', file=f4)
+	# print('#include "'+ scedulesPath + 'appliance_schedules.glm";', file=f4)
+	# print('#include "'+ scedulesPath + 'water_schedule.glm";', file=f4)
  
-	print('object climate {', file=f4)
-	print('     name weather;', file=f4)
-	print('     tmyfile "./WeatherFiles/TX_Midland_International_Ap.tmy3";', file=f4)
-	print('     interpolate QUADRATIC;', file=f4)
-	print('}', file=f4)
+	# print('object climate {', file=f4)
+	# print('     name weather;', file=f4)
+	# print('     tmyfile "./Weather/TX_Midland_International_Ap.tmy3";', file=f4)
+	# print('     interpolate QUADRATIC;', file=f4)
+	# print('}', file=f4)
     
+	for l in linesFeeder:
+		print(l, file=f4, end="")
+    
+	print('', file=f4)
 	print('object fncs_msg {', file=f4)
-	print('     name gridlabdSimulator1;', file=f4)
+	print('     name gridlabdSimulator' + str(i+1) + ';', file=f4)
 	print('     parent network_node;', file=f4)
 	print('     configure '+ InputFilesFolder + feederName + 'Modified' + str(NDistSys)+'_FNCS_Config.txt;', file=f4)
 	print('    option "transport:hostname localhost, port 5570";', file=f4)
 	print('}', file=f4)
-    
-	for l in linesFeeder:
-		print(l, file=f4, end="")
     
 	for objname,objdata in objects.items():
 		data = {'node': {'name' : '', 'phases': '', 'voltage_A': '', 'voltage_B': '', 'voltage_C': '', 'nominal_voltage': 0.0},

@@ -3,6 +3,30 @@ import random
 import numpy as np
 import yaml
 import math
+import os
+
+FeederFolder= "IEEE123"
+DistFeederPath = './DistributionFeeder/' + FeederFolder + "/"
+
+scedulesFolder= "schedules"
+scedulesPath = './DistributionFeeder/' + scedulesFolder + "/"
+
+
+InputFilesFolder = "./InputFiles/"
+if not os.path.exists(InputFilesFolder):
+    os.makedirs(InputFilesFolder)
+
+YAMLFilesFolder = "YAMLFiles"
+YAMLPath = os.path.join(InputFilesFolder,YAMLFilesFolder)
+if not os.path.exists(YAMLPath):
+    os.makedirs(YAMLPath)
+
+JsonFolder = "JsonFiles"
+JsonPath = os.path.join(InputFilesFolder,JsonFolder)
+if not os.path.exists(JsonPath):
+    os.makedirs(JsonPath)
+
+HousePath = './House/'
 
 if len(sys.argv) == 8:
 	DistFeederFileName = (sys.argv[1])
@@ -61,10 +85,10 @@ elif len(sys.argv) == 1:
 	Bus = 1
 	AvgValue = 5000
 
-f1 = open(DistFeederFileName, 'r')
+f1 = open(DistFeederPath + DistFeederFileName, 'r')
 linesFeeder = f1.readlines()
 
-f2 = open(FeederLoadFileName, 'r')
+f2 = open(DistFeederPath + FeederLoadFileName, 'r')
 linesLoads = f2.readlines()
 
 objects = {}
@@ -199,18 +223,53 @@ glm = '.glm'
 
 for i in range(NDistSys):
 	feederHouse = feederName + 'Modified' + str(NDistSys) + glm
-	f4 = open(feederHouse,'w')
+	f4 = open(InputFilesFolder + feederHouse,'w')
+    
+	print('#set minimum_timestep=300', file=f4)
+	print('#set profiler=1', file=f4)
+	print('#set randomseed=10', file=f4)
+    
+	print('clock {', file=f4)
+	print('     timezone CST+6CDT;', file=f4)
+	print("     starttime '2016-07-26 00:00:00';", file=f4)
+	print("     stoptime '2016-07-29 06:00:00';", file=f4)
+	print('}', file=f4)
+    
+	print('module tape;', file=f4)
+	print('module connection;', file=f4)
+	print('module climate;', file=f4)
+    
+	print('module powerflow {', file=f4)
+	print('     solver_method FBS;', file=f4)
+	print('     warning_undervoltage 0.95 pu;', file=f4)
+	print('     warning_overvoltage 1.05 pu;', file=f4)
+	print('     line_limits TRUE;', file=f4)
+	print('}', file=f4)
 
-	for l in linesFeeder:
-		print(l, file=f4)
+	print('module residential {', file=f4)
+	print('     implicit_enduses NONE;', file=f4)
+	print('     ANSI_voltage_check TRUE;', file=f4)
+	print('}', file=f4)
 
+	print('#include "'+ scedulesPath + 'appliance_schedules.glm";', file=f4)
+	print('#include "'+ scedulesPath + 'water_schedule.glm";', file=f4)
+ 
+	print('object climate {', file=f4)
+	print('     name weather;', file=f4)
+	print('     tmyfile "./WeatherFiles/TX_Midland_International_Ap.tmy3";', file=f4)
+	print('     interpolate QUADRATIC;', file=f4)
+	print('}', file=f4)
+    
 	print('object fncs_msg {', file=f4)
 	print('     name gridlabdSimulator1;', file=f4)
 	print('     parent network_node;', file=f4)
-	print('     configure '+ feederName + 'Modified' + str(NDistSys)+'_FNCS_Config.txt;', file=f4)
+	print('     configure '+ InputFilesFolder + feederName + 'Modified' + str(NDistSys)+'_FNCS_Config.txt;', file=f4)
 	print('    option "transport:hostname localhost, port 5570";', file=f4)
 	print('}', file=f4)
-	
+    
+	for l in linesFeeder:
+		print(l, file=f4, end="")
+    
 	for objname,objdata in objects.items():
 		data = {'node': {'name' : '', 'phases': '', 'voltage_A': '', 'voltage_B': '', 'voltage_C': '', 'nominal_voltage': 0.0},
 		'transformer':{'name' : '', 'phases': '', 'from': '', 'to' : '', 'configuration':''},
@@ -263,7 +322,7 @@ for i in range(NDistSys):
 				house_index = str(data['node']['name'])+ str(ph) + '_' + str(j+1)
 				data['house']['name'] = 'house_'+ house_index
 				if i ==0:
-					print('start /b cmd /c python ' + HouseController + '.py input/controller_registration_'+data['house']['name']+'_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/'+data['house']['name']+'.log 2^>^&1', file = f3)
+					print('start /b cmd /c python ' + HousePath + HouseController + '.py '+ JsonPath +'/controller_registration_'+data['house']['name']+'_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/'+data['house']['name']+'.log 2^>^&1', file = f3)
 				
 				data['triplex_line']['phases'] = str(ph) + 'S'
 				data['triplex_line']['from'] = data['triplex_node_1']['name']
@@ -515,5 +574,5 @@ for i in range(NDistSys):
 				details = {'topic':'controller_'+datayaml['house']['name']+'_thermostat_controller/TransactiveAgentOutput', 'default': {"controller":{datayaml['house']['name']:{"pistar":{"propertyType":"double","propertyUnit":"none","propertyValue":0.0},"P":{"propertyType":"double","propertyUnit":"none","propertyValue":0.0},"P_ON":{"propertyType":"double", "propertyUnit": "none", "propertyValue": 0.0},"state":{"propertyType":"string","propertyUnit":"none","propertyValue":"ON"}}}}}
 				auction_datayaml['values'][datayaml['house']['name']] = details
 
-with open( './YAMLFiles/' + AgentType + '.yaml', 'w') as outfile: 
+with open( YAMLPath + '/' + AgentType + '.yaml', 'w') as outfile: 
     yaml.dump(auction_datayaml, outfile, default_flow_style=False)

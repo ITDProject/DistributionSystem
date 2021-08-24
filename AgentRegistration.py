@@ -209,14 +209,16 @@ def AgentRegistration (filename, N, Bus):
 	marketName = str(Bus) # "1" 
 	IDSOMsgName = AgentType + "_" + marketName # "IDSO_1"
 	
-	folderName = "input"
-	ip = open (filename + ".glm", "r")
-	if not os.path.exists("input"):
-		os.makedirs(folderName)
+	InputFilesFolder = "./InputFiles/"
+	folderName = "JsonFiles"
+	path = os.path.join(InputFilesFolder,folderName)
+	ip = open (InputFilesFolder + filename + ".glm", "r")
+	if not os.path.exists(path):
+		os.makedirs(path)
 	else:
-		shutil.rmtree("input") # delete the existing input folder in case there are data not needed
-		os.makedirs(folderName)
-	op_auction = open (folderName + "/" + AgentType + "_registration.json", "w") 
+		shutil.rmtree(path) # delete the existing JsonFiles folder in case there are data not needed
+		os.makedirs(path)
+	op_auction = open (path + "/" + AgentType + "_registration.json", "w") 
 	
 
 	# market data:
@@ -406,7 +408,7 @@ def AgentRegistration (filename, N, Bus):
 		# Input data
 		controllerDict['initial_values'] = controllers[key]
 		# Write the controller into one json file:
-		filename = folderName + "/controller_registration_" + key + ".json"
+		filename = path + "/controller_registration_" + key + ".json"
 		op_controller = open(filename, "w")
 		json.dump(controllerDict, op_controller)
 		op_controller.close()

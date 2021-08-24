@@ -1,7 +1,12 @@
 #	Copyright (C) 2017 Battelle Memorial Institute
 import sys
 import json
+import os
 from AgentRegistration import AgentRegistration
+
+InputFilesFolder = "./InputFiles/"
+if not os.path.exists(InputFilesFolder):
+    os.makedirs(InputFilesFolder)
 
 if len(sys.argv) == 4:
 	FeederFileName = (sys.argv[1])
@@ -38,7 +43,7 @@ suffix_gld = "&> gridlabd.log &)"
 metrics = sys.argv[1]
 
 for i in range(NDistSys):
-	op = open(fileName +"_FNCS_Config.txt", "w")
+	op = open(InputFilesFolder + fileName +"_FNCS_Config.txt", "w")
 	print ("publish \"commit:network_node.distribution_load -> distribution_load\";", file=op)
 	print ("publish \"commit:network_node.distribution_real_energy -> distribution_energy\";", file=op)
 	for key, value in controllers.items():

@@ -56,12 +56,17 @@ Steps involved in execution:
    * NDistSys - The number of distribution systems that are handled by the IDSO
    
    * Mix - Represents if the chosen households are a mix of different structure types or single structure type;
+     
      * Mix is set to 0: A single structure type, set by input parameter 'Type' described below, is chosen to populate the distribution system feeder;
+     
      * Mix is set to 1: A mix of structure types Low, Medium, High are used to populate the distribution system feeder;
 	 
    * Type - Represents household's structure quality type; 
+     
      * Set Type to 1 for Low Structure Quality Type;
+     
      * Set Type to 2 for Medium Structure Quality Type;
+     
      * Set Type to 3 for High Structure Quality Type;
 	   
    * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
@@ -102,8 +107,11 @@ Steps involved in execution:
    * DistFeederFileName - The name of the distribution feeder file given in Step 1 (without '.glm' extension), e.g. IEEE123, IEEE13, etc
    
    * C - Choose an appropriate case; 
+     
      * Set C to 0 for generating test case outcomes with a flat retail price. Also set FRP(cents/kWh) to user specified retail price 
+     
      * Set C to 1 for generating test case outcomes for 'Test Case 2: IDSO Peak Load Reduction Capabilities'. Also set PL(kW) and TPLR(kW) to user specified values
+     
      * Set C to 2 for generating test case outcomes for 'Test Case 3: IDSO Load Matching Capabilities'. Also set RefLoad
    
    * DSDirectory - Set the path of this repository folder to DSDirectory

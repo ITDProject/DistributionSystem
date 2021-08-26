@@ -8,7 +8,7 @@ Currently, this repository is only supported on a Windows operating system.
 
 Installation Instructions:
 
-1. Install Python
+#. Install Python
     
    Python can be installed using any of the following choices:
     
@@ -37,39 +37,34 @@ Installation Instructions:
 
    Note: For “version” command line prompts, Python requires the use of a double hyphen “- -version”.
 
-2. Install GridLAB-D with FNCS as prerequisite by following the instructions at
+#. Install GridLAB-D with FNCS as prerequisite by following the instructions at
    http://gridlab-d.shoutwiki.com/wiki/Building_GridLAB-D_on_Windows_with_MSYS2#Building_GridLAB-D_from_Source
 
 
 Steps involved in execution:
 
-1. Generate distribution system feeder populated with households with the choice of 'Household Type' by executing the following:
+#. Generate distribution system feeder populated with households with the choice of 'Household Type' by executing the following:
 
    python DistributionFeederWriter.py DistFeederFileName FeederLoadFileName NDistSys Mix Type TxBus
    
    The above commands depend on the following user-specified parameters: 
    
-   DistFeederFileName - The name of the distribution feeder file, e.g. IEEE123.glm, IEEE13.glm, etc
+   * DistFeederFileName - The name of the distribution feeder file, e.g. IEEE123.glm, IEEE13.glm, etc
    
-   FeederLoadFileName - The name of the file that has original feeder load details
+   * FeederLoadFileName - The name of the file that has original feeder load details
    
-   NDistSys - The number of distribution systems that are handled by the IDSO
+   * NDistSys - The number of distribution systems that are handled by the IDSO
    
-   Mix - Represents if the chosen households are a mix of different structure types or single structure type;
-   
-   Mix is set to 0: A single structure type, set by input parameter 'Type' described below, is chosen to populate the distribution system feeder;
-   
-   Mix is set to 1: A mix of structure types Low, Medium, High are used to populate the distribution system feeder;
+   * Mix - Represents if the chosen households are a mix of different structure types or single structure type;
+     * Mix is set to 0: A single structure type, set by input parameter 'Type' described below, is chosen to populate the distribution system feeder;
+     * Mix is set to 1: A mix of structure types Low, Medium, High are used to populate the distribution system feeder;
 	 
-   Type - Represents household's structure quality type; 
-   
-	   Set Type to 1 for Low Structure Quality Type;
-
-	   Set Type to 2 for Medium Structure Quality Type;
-
-	   Set Type to 3 for High Structure Quality Type;
+   * Type - Represents household's structure quality type; 
+     * Set Type to 1 for Low Structure Quality Type;
+     * Set Type to 2 for Medium Structure Quality Type;
+     * Set Type to 3 for High Structure Quality Type;
 	   
-   TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
+   * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
    (Example usage: python DistributionFeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1)
    

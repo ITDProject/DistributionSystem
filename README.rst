@@ -76,11 +76,11 @@ Steps involved in execution:
    
    The above commands depend on the following user-specified parameters: 
    
-   FileName - The name of the distribution feeder generated in the above step
+   * FileName - The name of the distribution feeder generated in the above step
    
-   NDistSys - The number of distribution systems that are handled by the IDSO
+   * NDistSys - The number of distribution systems that are handled by the IDSO
    
-   TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
+   * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
    (Example usage: python AgentPrep.py IEEEModified1 1 1)  
     		
@@ -89,27 +89,24 @@ Steps involved in execution:
 	
 3. Set the following parameters in the runIDSO.bat
    
-   NDay - Number of days the simulation needs to be carried out
+   * NDay - Number of days the simulation needs to be carried out
    
-   NHour - Number of additional hours the simulation needs to be carried out after the simulation is run for NDay
+   * NHour - Number of additional hours the simulation needs to be carried out after the simulation is run for NDay
    
-   deltaT - Length (seconds) of each control-step of the Five-Step TES design
+   * deltaT - Length (seconds) of each control-step of the Five-Step TES design
    
-   NoOfHouses - Number of households connected to the distribution system feeder
+   * NoOfHouses - Number of households connected to the distribution system feeder
    
-   NDistSys - Number of distribution systems monitored by the IDSO
+   * NDistSys - Number of distribution systems monitored by the IDSO
    
-   DistFeederFileName - The name of the distribution feeder file given in Step 1 (without '.glm' extension), e.g. IEEE123, IEEE13, etc
+   * DistFeederFileName - The name of the distribution feeder file given in Step 1 (without '.glm' extension), e.g. IEEE123, IEEE13, etc
    
-   C - Choose an appropriate case; 
+   * C - Choose an appropriate case; 
+     * Set C to 0 for generating test case outcomes with a flat retail price. Also set FRP(cents/kWh) to user specified retail price 
+     * Set C to 1 for generating test case outcomes for 'Test Case 2: IDSO Peak Load Reduction Capabilities'. Also set PL(kW) and TPLR(kW) to user specified values
+     * Set C to 2 for generating test case outcomes for 'Test Case 3: IDSO Load Matching Capabilities'. Also set RefLoad
    
-   Set C to 0 for generating test case outcomes with a flat retail price. Also set FRP(cents/kWh) to user specified retail price 
-   
-   Set C to 1 for generating test case outcomes for 'Test Case 2: IDSO Peak Load Reduction Capabilities'. Also set PL(kW) and TPLR(kW) to user specified values
-   
-   Set C to 2 for generating test case outcomes for 'Test Case 3: IDSO Load Matching Capabilities'. Also set RefLoad
-   
-   DSDirectory - Set the path of this repository folder to DSDirectory
+   * DSDirectory - Set the path of this repository folder to DSDirectory
 	
 4. Run all the distribution system processes by executing the following command:
    runIDSO.bat

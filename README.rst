@@ -12,13 +12,13 @@ Installation Instructions:
     
    Python can be installed using any of the following choices:
     
-   Choice 1: Install Python using the Anaconda Distribution, available for downloading from https://www.anaconda.com/distribution/
+   * Choice 1: Install Python using the Anaconda Distribution, available for downloading from https://www.anaconda.com/distribution/
    Check https://docs.anaconda.com/anaconda/install/windows/ for installation instructions. 
 
-   Choice 2: Install Python using the Miniconda installer following the instructions given at https://conda.io/miniconda.html 
+   * Choice 2: Install Python using the Miniconda installer following the instructions given at https://conda.io/miniconda.html 
    Note: Pay particular attention to how the conda package manager is used to install various required modules such as numpy. 
 
-   Choice 3: Install standard Python from https://www.python.org/ . The optional ‘pip’ is needed to install modules such as numpy.
+   * Choice 3: Install standard Python from https://www.python.org/ . The optional ‘pip’ is needed to install modules such as numpy.
 	
    Note: The current study used the Miniconda installer from https://docs.conda.io/en/latest/miniconda.html to install Python (V3) at the location 	
    C:\Miniconda3
@@ -75,7 +75,7 @@ Steps involved in execution:
    
    Outcomes: Distribution feeder populated by houses and a 'Yaml' file for IDSO. IDSO yaml file would contain all necessary details required to communicate with distribution agents (and transmission agents if this model is used within an ITD). 
     
-2. Generate required additional files by executing the following command:
+#. Generate required additional files by executing the following command:
    
    python AgentPrep.py FileName NDistSys TxBus
    
@@ -92,7 +92,7 @@ Steps involved in execution:
    Outcomes: FNCS configuration txt file and json registration files for IDSO and households.
    FNCS configuration txt file contains needed input information for configuring GridLAB-D subscriptions and publications. IDSO json file contains needed input information for the IDSO and Household json file contains household specific information (household attributes).
 	
-3. Set the following parameters in the runIDSO.bat
+#. Set the following parameters in the runIDSO.bat
    
    * NDay - Number of days the simulation needs to be carried out
    
@@ -116,5 +116,5 @@ Steps involved in execution:
    
    * DSDirectory - Set the path of this repository folder to DSDirectory
 	
-4. Run all the distribution system processes by executing the following command:
+#. Run all the distribution system processes by executing the following command:
    runIDSO.bat

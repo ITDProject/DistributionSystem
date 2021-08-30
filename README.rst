@@ -1,4 +1,4 @@
-# DistributionSystem
+**# DistributionSystem**
 
 This site gathers together ITD Project work on the modeling of distribution systems relevant for the modeling of Integrated Transmission and Distribution (ITD) systems.
 
@@ -122,8 +122,7 @@ Currently, this repository is only supported on a Windows operating system.
 
    runIDSO.bat
    
-Miscellaneous Notes: 
+**Miscellaneous Notes:** 
 
 * User can end the simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all the processes. If you perform 'kill5570.bat', make sure to run 'list5570.bat' shows no process before executing another 'runIDSO.bat' operation. 
 * Note for developers: For 'import fncs' to work, the environmental variable $PATH needs to be appended to add location of 'fncs.py'.
-* 

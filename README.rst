@@ -45,11 +45,11 @@ Currently, this repository is only supported on a Windows operating system.
 
 #. Generate distribution system feeder populated with households with the choice of 'Household Type' by executing the following:
 
-   python FeederWriter.py DistFeederFileName FeederLoadFileName NDistSys Mix Type TxBus
+   python FeederWriter.py FeederFileName FeederLoadFileName NDistSys Mix Type TxBus
    
    The above commands depend on the following user-specified parameters: 
    
-   * DistFeederFileName - The name of the distribution feeder file, e.g. IEEE123.glm, IEEE13.glm, etc
+   * FeederFileName - The name of the feeder file, e.g. IEEE123.glm, IEEE13.glm, etc
    
    * FeederLoadFileName - The name of the file that has original feeder load details
    

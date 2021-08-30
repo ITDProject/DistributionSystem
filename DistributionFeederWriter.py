@@ -22,7 +22,7 @@ JsonPath = os.path.join(InputFilesFolder,JsonFolder)
 if not os.path.exists(JsonPath):
     os.makedirs(JsonPath)
 
-HousePath = './House/'
+HousePath = './Household/'
 
 if len(sys.argv) == 8:
 	DistFeederFileName = (sys.argv[1])

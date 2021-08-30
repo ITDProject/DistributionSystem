@@ -120,4 +120,4 @@ Steps involved in execution:
 
    runIDSO.bat
    
-   (Additional Notes: User can end the simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all the processes. If you perform 'kill5570.bat', make sure 'list5570.bat'shows no process before executing another 'runIDSO.bat' operation. 
+   (Additional Notes: User can end the simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all the processes. If you perform 'kill5570.bat', make sure 'list5570.bat' shows no process before executing another 'runIDSO.bat' operation. 

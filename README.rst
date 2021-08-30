@@ -91,6 +91,8 @@ Steps involved in execution:
     		
    Outcomes: FNCS configuration txt file and json registration files for IDSO and households.
    FNCS configuration txt file contains needed input information for configuring GridLAB-D subscriptions and publications. IDSO json file contains needed input information for the IDSO and Household json file contains household specific information (household attributes).
+   
+   Additional Note: AgentsPrep.py calls the 'AgentRegistration' method that is located in the 'AgentRegistration.py'.
 	
 #. Set the following parameters in the runIDSO.bat
    
@@ -120,4 +122,8 @@ Steps involved in execution:
 
    runIDSO.bat
    
-   (Additional Notes: User can end the simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all the processes. If you perform 'kill5570.bat', make sure 'list5570.bat' shows no process before executing another 'runIDSO.bat' operation. 
+Miscellaneous Notes: 
+
+* User can end the simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all the processes. If you perform 'kill5570.bat', make sure to run 'list5570.bat' shows no process before executing another 'runIDSO.bat' operation. 
+* Note for developers: For 'import fncs' to work, the environmental variable $PATH needs to be appended to add location of 'fncs.py'.
+* 

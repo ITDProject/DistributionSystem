@@ -6,7 +6,7 @@ The code/data in this repository are provided in support of ITD TES Platform tha
 
 Currently, this repository is only supported on a Windows operating system.
 
-Installation Instructions:
+**Installation Instructions:**
 
 #. Install Python
     
@@ -41,7 +41,7 @@ Installation Instructions:
    http://gridlab-d.shoutwiki.com/wiki/Building_GridLAB-D_on_Windows_with_MSYS2#Building_GridLAB-D_from_Source
 
 
-Steps involved in execution:
+**Steps involved in execution:**
 
 #. Generate distribution system feeder populated with households with the choice of 'Household Type' by executing the following:
 

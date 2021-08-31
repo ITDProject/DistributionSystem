@@ -203,7 +203,7 @@ for objname,objdata in objects.items():
 print('TotalHouses:', TotalHouses)
 print('Nodes:', NumNodes, flush = True)
 
-HouseBatchFile = 'runHouses' + str(TotalHouses) + '.bat'
+HouseBatchFile = 'runHouseholds' + str(TotalHouses) + '.bat'
 f3 = open(HouseBatchFile,'w')
 
 #print('DistFeederFileName: ', DistFeederFileName)

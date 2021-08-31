@@ -45,7 +45,7 @@ Currently, this repository is only supported on a Windows operating system.
 
 #. Generate distribution system feeder populated with households with the choice of 'Household Type' by executing the following:
 
-   python FeederWriter.py FeederFileName FeederLoadFileName NDistSys Mix Type TxBus
+   python feederWriter.py FeederFileName FeederLoadFileName NDistSys Mix Type TxBus
    
    The above commands depend on the following user-specified parameters: 
    
@@ -85,7 +85,7 @@ Currently, this repository is only supported on a Windows operating system.
     
 #. Generate required additional files by executing the following command:
    
-   python AgentPrep.py FileName NDistSys TxBus
+   python agentPreparation.py FileName NDistSys TxBus
    
    The above commands depend on the following user-specified parameters: 
    
@@ -107,7 +107,7 @@ Currently, this repository is only supported on a Windows operating system.
    
    Sample outcomes: IEEE123FeederModified1_FNCS_Config.txt, IDSO_registration.json, etc
    
-   Note: AgentsPrep.py calls the 'AgentRegistration' method of the 'AgentRegistration.py'.
+   Note: agentPreparation.py calls the 'agentRegistration' method of the 'agentRegistration.py'.
    
 #. Set the following parameters in the runIDSO.bat
    

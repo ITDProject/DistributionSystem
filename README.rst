@@ -107,7 +107,7 @@ Currently, this repository is only supported on a Windows operating system.
    
    Sample outcomes: IEEE123FeederModified1_FNCS_Config.txt, IDSO_registration.json, etc
    
-   Note: agentPreparation.py calls the 'agentRegistration' method of the 'agentRegistration.py'.
+   Note: 'agentPreparation.py' imports 'agentRegistration' class from 'agentRegistration.py'.
    
 #. Set the following parameters in the runIDSO.bat
    

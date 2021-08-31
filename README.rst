@@ -74,6 +74,7 @@ Currently, this repository is only supported on a Windows operating system.
    Example usage: python FeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1;
    
    Outcomes:
+   
    * A '.glm' file for the distribution system: It is the required distribution feeder populated by households
    
    * A '.yaml' file for the IDSO: IDSO yaml file would contain all necessary details required to communicate with distribution agents (and transmission agents if this model is used within an ITD)
@@ -97,9 +98,12 @@ Currently, this repository is only supported on a Windows operating system.
    Example usage: python AgentPrep.py IEEEModified1 1 1
     		
    Outcomes: 
-   * FNCS configuration txt file: It contains needed input information for configuring GridLAB-D subscriptions and publications.
+   
+   * FNCS configuration txt file: It contains needed input information for configuring GridLAB-D subscriptions and publications
+   
    * '.json' registration file for the IDSO: It contains the input information required to initialize the IDSO
-   * '.json' registration files for the households: Each file contains input information (household attributes) specific to each household.
+   
+   * '.json' registration files for the households: Each file contains input information (household attributes) specific to each household
    
    Sample outcomes: IEEE123FeederModified1_FNCS_Config.txt, IDSO_registration.json, etc
    

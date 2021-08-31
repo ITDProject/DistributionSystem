@@ -12,11 +12,11 @@ set PlotFilesDir=%OutputFilesDir%\plotFiles
 set "NDay=2"
 set "NHour=4"
 set "deltaT=300"
-set "NoOfhouseholds=4"
+set "NoOfHouseholds=927"
 set "NDistSys=1"
 set "DistFeederFileName=IEEE123Feeder"
 set /a "tmax=%NDay%*86400+%NHour%*3600"
-set /a "NoOfProcesses=%NoOfhouseholds%+%NDistSys%+1"
+set /a "NoOfProcesses=%NoOfHouseholds%+%NDistSys%+1"
 
 set "C=2"
 REM choose 0 for FRP, 1 for PR, 2 for LF 
@@ -47,8 +47,4 @@ set FNCS_LOG_LEVEL=DEBUG2
 FOR /L %%i IN (1,1,%NDistSys%) DO start /b cmd /c gridlabd %DSInputFilesDir%/%DistFeederFileName%Modified%%i.glm ^>%LogFilesDir%/gridlabd%%i.log 2^>^&1
 
 set FNCS_LOG_LEVEL=
-REM runhouses27.bat
-start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_1_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_1.log 2^>^&1
-start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_2_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_2.log 2^>^&1
-start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_3_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_3.log 2^>^&1
-start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_4_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_4.log 2^>^&1
+runHouseholds927.bat

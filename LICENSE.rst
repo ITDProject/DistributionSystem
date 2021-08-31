@@ -40,6 +40,7 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
    may use, copy, modify, merge, publish, distribute, sublicense,
    and/or sell copies of the Software, and may permit others to do so,
    subject to the following conditions:
+   
    - Redistributions of source code must retain the above copyright
      notice, this list of conditions and the following disclaimers.
    - Redistributions in binary form must reproduce the above copyright

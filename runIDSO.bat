@@ -1,24 +1,25 @@
-set DSDirectory=C:\Users\swathi\Dropbox\ITDTESPlatform\DistributionSystem
-set DistFeederDir=%DSDirectory%\DistributionFeeder\IEEE123
-set InputFilesDir=%DSDirectory%\InputFiles
-set YAMLFilesDir=%InputFilesDir%\YAMLFiles
-set JsonFilesDir=%InputFilesDir%\JsonFiles
-set OutputFilesDir=%DSDirectory%\OutputFiles
-set LogFilesDir=%OutputFilesDir%\LogFiles
-set PlotFilesDir=%OutputFilesDir%\PlotFiles
+set DSDir=C:\Users\swathi\Dropbox\ITDTESPlatform\DistributionSystem
 
+set DistFeederDir=%DSDir%\feeder\IEEE123
+set DSInputFilesDir=%DSDir%\inputFiles
+set DSJsonFilesDir=%DSInputFilesDir%\jsonFiles
+set DSYAMLFilesDir=%DSInputFilesDir%\yamlFiles
+
+set OutputFilesDir=%DSDir%\outputFiles
+set LogFilesDir=%OutputFilesDir%\logFiles
+set PlotFilesDir=%OutputFilesDir%\plotFiles
 
 set "NDay=2"
 set "NHour=4"
 set "deltaT=300"
-set "NoOfHouses=4"
+set "NoOfhouseholds=4"
 set "NDistSys=1"
 set "DistFeederFileName=IEEE123Feeder"
 set /a "tmax=%NDay%*86400+%NHour%*3600"
-set /a "NoOfProcesses=%NoOfHouses%+%NDistSys%+1"
+set /a "NoOfProcesses=%NoOfhouseholds%+%NDistSys%+1"
 
 set "C=2"
-rem choose 0 for FRP, 1 for PR, 2 for LF 
+REM choose 0 for FRP, 1 for PR, 2 for LF 
 
 set "FRP=12"
 set "PL=5000"
@@ -31,22 +32,23 @@ md %PlotFilesDir% 2> nul
 
 set FNCS_FATAL=no
 set FNCS_LOG_STDOUT=yes
-cd %DSDirectory%
-
+set FNCS_TRACE=no
 set FNCS_LOG_LEVEL=DEBUG2
-set FNCS_TRACE=NO
+
 start /b cmd /c fncs_broker %NoOfProcesses% ^>%LogFilesDir%/broker.log 2^>^&1
 
+cd %DSDir%
+
 set FNCS_LOG_LEVEL=
-set FNCS_CONFIG_FILE=%YAMLFilesDir%/IDSO.yaml
-start /b cmd /c python ./IDSO/IDSO.py %JsonFilesDir%/IDSO_registration.json %tmax% %deltaT% %NDistSys% %C% %FRP% %PL% %TPLR% %RefLoad% ^>%LogFilesDir%/IDSO.log 2^>^&1
+set FNCS_CONFIG_FILE=%DSYAMLFilesDir%/IDSO.yaml
+start /b cmd /c python ./IDSO/IDSO.py %DSJsonFilesDir%/IDSO_registration.json %tmax% %deltaT% %NDistSys% %C% %FRP% %PL% %TPLR% %RefLoad% ^>%LogFilesDir%/IDSO.log 2^>^&1
 
 set FNCS_LOG_LEVEL=DEBUG2
-FOR /L %%i IN (1,1,%NDistSys%) DO start /b cmd /c gridlabd %InputFilesDir%/%DistFeederFileName%Modified%%i.glm ^>%LogFilesDir%/gridlabd%%i.log 2^>^&1
+FOR /L %%i IN (1,1,%NDistSys%) DO start /b cmd /c gridlabd %DSInputFilesDir%/%DistFeederFileName%Modified%%i.glm ^>%LogFilesDir%/gridlabd%%i.log 2^>^&1
 
 set FNCS_LOG_LEVEL=
-REM runHouseholds927.bat
-start /b cmd /c python ./House/HouseController.py ./InputFiles/JsonFiles/controller_registration_house_1A_1_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_1.log 2^>^&1
-start /b cmd /c python ./House/HouseController.py ./InputFiles/JsonFiles/controller_registration_house_1A_2_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_2.log 2^>^&1
-start /b cmd /c python ./House/HouseController.py ./InputFiles/JsonFiles/controller_registration_house_1A_3_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_3.log 2^>^&1
-start /b cmd /c python ./House/HouseController.py ./InputFiles/JsonFiles/controller_registration_house_1A_4_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_4.log 2^>^&1
+REM runhouses27.bat
+start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_1_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_1.log 2^>^&1
+start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_2_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_2.log 2^>^&1
+start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_3_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_3.log 2^>^&1
+start /b cmd /c python ./householdGER/houseController.py ./inputFiles/jsonFiles/controller_registration_house_1A_4_thermostat_controller.json %tmax% %deltaT% ^>%logfilesdir%/house_1A_4.log 2^>^&1

@@ -71,9 +71,16 @@ Currently, this repository is only supported on a Windows operating system.
 	   
    * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   (Example usage: python FeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1)
+   Example usage: python FeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1;
    
-   Outcomes: Distribution feeder populated by houses and a 'Yaml' file for IDSO. IDSO yaml file would contain all necessary details required to communicate with distribution agents (and transmission agents if this model is used within an ITD). 
+   Outcomes:
+   * A '.glm' file for the distribution system: It is the required distribution feeder populated by households
+   
+   * A '.yaml' file for the IDSO: IDSO yaml file would contain all necessary details required to communicate with distribution agents (and transmission agents if this model is used within an ITD)
+   
+   * A '.bat' file for the households: It would contain the required code to run household processes, used in Step 4.
+    
+   Sample outcomes: IEEE123FeederModified1.glm, IDSO.yaml, runHouses.bat
     
 #. Generate required additional files by executing the following command:
    
@@ -87,13 +94,17 @@ Currently, this repository is only supported on a Windows operating system.
    
    * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   (Example usage: python AgentPrep.py IEEEModified1 1 1)  
+   Example usage: python AgentPrep.py IEEEModified1 1 1
     		
-   Outcomes: FNCS configuration txt file and json registration files for IDSO and households.
-   FNCS configuration txt file contains needed input information for configuring GridLAB-D subscriptions and publications. IDSO json file contains needed input information for the IDSO and Household json file contains household specific information (household attributes).
+   Outcomes: 
+   * FNCS configuration txt file: It contains needed input information for configuring GridLAB-D subscriptions and publications.
+   * '.json' registration file for the IDSO: It contains the input information required to initialize the IDSO
+   * '.json' registration files for the households: Each file contains input information (household attributes) specific to each household.
    
-   Additional Note: AgentsPrep.py calls the 'AgentRegistration' method that is located in the 'AgentRegistration.py'.
-	
+   Sample outcomes: IEEE123FeederModified1_FNCS_Config.txt, IDSO_registration.json, etc
+   
+   Note: AgentsPrep.py calls the 'AgentRegistration' method of the 'AgentRegistration.py'.
+   
 #. Set the following parameters in the runIDSO.bat
    
    * NDay - Number of days the simulation needs to be carried out
@@ -121,6 +132,8 @@ Currently, this repository is only supported on a Windows operating system.
 #. Run all the distribution system processes by executing the following command:
 
    runIDSO.bat
+   
+   Note: All the files generated in the above steps are needed to run the distribution system processes.
    
 **Miscellaneous Notes:** 
 

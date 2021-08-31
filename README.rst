@@ -111,6 +111,8 @@ Currently, this repository is only supported on a Windows operating system.
    
 #. Set the following parameters in the runIDSO.bat
    
+   * DSDirectory - Set the path of this repository folder to DSDirectory
+   
    * NDay - Number of days the simulation needs to be carried out
    
    * NHour - Number of additional hours the simulation needs to be carried out after the simulation is run for NDay
@@ -131,7 +133,6 @@ Currently, this repository is only supported on a Windows operating system.
      
      * Set C to 2 for generating test case outcomes for 'Test Case 3: IDSO Load Matching Capabilities'. Also set RefLoad
    
-   * DSDirectory - Set the path of this repository folder to DSDirectory
 	
 #. Run all the distribution system processes by executing the following command:
 

@@ -81,7 +81,7 @@ Currently, this repository is only supported on a Windows operating system.
    
    * A '.bat' file for the households: It would contain the required code to run household processes, used in Step 4.
     
-   Sample outcomes: IEEE123FeederModified1.glm, IDSO.yaml, runHouses.bat
+   Sample outcomes: IEEE123FeederModified1.glm, IDSO.yaml, runHouseholds.bat
     
 #. Generate required additional files by executing the following command:
    
@@ -117,7 +117,7 @@ Currently, this repository is only supported on a Windows operating system.
    
    * deltaT - Length (seconds) of each control-step of the Five-Step TES design
    
-   * NoOfHouses - Number of households connected to the distribution system feeder
+   * NoOfHouseholds - Number of households connected to the distribution system feeder
    
    * NDistSys - Number of distribution systems monitored by the IDSO
    

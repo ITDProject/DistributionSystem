@@ -81,7 +81,7 @@ def initialize():
 	RetailPrice = [FlatRetailPrice, 0]
 
 	kWpW = 1000
-	RDigit = 3
+	RDigit = 2
 
 	NHour = 24
 	min_len = 60 # in s
@@ -386,7 +386,7 @@ with warnings.catch_warnings():
 				for i in range(len(house_names)):
 					SumHvacLoad = SumHvacLoad + hvac_load[k][house_names[i]]['hvac_load_kW']
 			TotalNonHVACLoad = round(sumDLoad - SumHvacLoad,RDigit) # (kW - kW) -> TotalNonHVACLoad in kW
-			print('ts:', ts, 'SumHvacLoad:', SumHvacLoad, 'sumDLoad:', sumDLoad, 'TotalNonHVACLoad:', TotalNonHVACLoad, flush = True)
+			print('ts:', ts, 'SumHvacLoad:', round(SumHvacLoad, RDigit), 'sumDLoad:', round(sumDLoad, RDigit), 'TotalNonHVACLoad:', TotalNonHVACLoad, flush = True)
 
 		fncs_sub_value_unicode = (fncs.agentGetEvents()).decode()
 		if fncs_sub_value_unicode != '':
@@ -413,7 +413,7 @@ with warnings.catch_warnings():
 								RetailPrice[0] = PriceCap
 					elif Case == 2:
 					#-------- Load Following Logic  ----------#
-						MaxON = round(RefLoad[hour] - TotalNonHVACLoad,2)
+						MaxON = round(RefLoad[hour] - TotalNonHVACLoad,RDigit)
 						print('ts:', ts, 'MaxON: ', MaxON)
 						RetailPrice = CalculateRetailPriceLF(MaxON, P, Pi, PNegative, PiNegative, PPositive, PiPositive)
 					

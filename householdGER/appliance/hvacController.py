@@ -212,7 +212,7 @@ class hvacController:
 			Hm = hs * ((Awt-Ag-Ad) + Awt*IWR + (Ac*n)/ECR)
 			Ua = Ac/Rc + Af/Rf + Ag/Rg + Aw/Rw  + Ad/Rd + VHa*A*h*I
 			
-			print('Ca:', Ca, 'Cm:', Cm, 'Hm:', Hm, 'Ua:', Ua, flush = True)
+			print('Ca:', round(Ca, 2), 'Cm:', round(Cm, 2) , 'Hm:', round(Hm, 2), 'Ua:', round(Ua, 2), flush = True)
 			
 			DIG = 167.09 * math.pow(A,0.442)
 			SHGC = Ag * SHGCNom * WET
@@ -237,7 +237,7 @@ class hvacController:
 			# print('DesCoolCap, fan_design_airflow calculated ', DesCoolCap, E, flush=True)
 			
 			D = DuctPressureDrop * E
-			P_FAN = round(math.ceil(o * D) * q,3) / 1000 # kW
+			P_FAN = round(math.ceil(o * D) * q,2) / 1000 # kW
 			FanPow = P_FAN * K # Btu/hr
 			
 			# print('FanPow, P_FAN',DuctPressureDrop, FanPow, P_FAN,flush = True)
@@ -294,8 +294,8 @@ class hvacController:
 		if title.startswith('VActual'):
 			for k in range(len(self.controller['Dsystem'])):
 				if title.startswith('VActual#'+ self.controller['Dsystem'][k]):
-					#print('VActual:', value, self.get_complex_number(value), round(abs(self.get_complex_number(value)),4), flush = True)
-					self.house[self.controller['Dsystem'][k]]['VActual'] = round(abs(self.get_complex_number(value)),4)
+					#print('VActual:', value, self.get_complex_number(value), round(abs(self.get_complex_number(value)),2), flush = True)
+					self.house[self.controller['Dsystem'][k]]['VActual'] = round(abs(self.get_complex_number(value)),2)
 
 	def CalPiStar(self, time_granted):
 		for k in range(len(self.controller['Dsystem'])):
@@ -356,11 +356,11 @@ class hvacController:
 			P_HVAC = DesCoolCapAdj * VF / (K * cooling_COPAdj)
 			HVACPow = VoltageAdj * DesCoolCapAdj / (1+LCF)
 			
-			PTotal = round( P_HVAC+P_FAN, 3)
+			PTotal = round( P_HVAC+P_FAN, 2)
 			QiHVACCal = - HVACPow + FanPow
 			
 			print('PTotal Cal: ', PTotal, flush=True)
-			print('FanPow:', FanPow, 'HVACPow:', HVACPow, flush = True)
+			print('FanPow:', round(FanPow, 2), 'HVACPow:', round(HVACPow, 2), flush = True)
 			print('VActual, RH, Qs, Qi', VActual, RH, round(Qs,2), round(Qi,2), flush = True )
 			# print('h2, mu:', h2, mu, flush=True)
 			
@@ -376,7 +376,7 @@ class hvacController:
 			K3 = ((1-fs) * Qs + (1-fi) * Qi)/Ca
 			pistar = round(K11*K12_Fan * ( (Ta - TB) + K21*(Tm - Ta)*deltaT/3600+ K22*(To - Ta)*deltaT/3600+ K3*deltaT/3600 - K4*(HVACPow - FanPow)*(deltaT/3600) ), 2)
 			
-			print('To, Tm, Ta : ', To, round(Tm,2), round(Ta,2), 'pistar:', pistar, flush = True)
+			print('To, Tm, Ta : ', round(To,2), round(Tm,2), round(Ta,2), 'pistar:', pistar, flush = True)
 			# print('K11:', round(K11,6), 'K12_Fan: ', round(K12_Fan,2), 'K21:', round(K21,2), 'K22:', round(K22,2), 'K31:', round(K31,2), 'K41:', round(K41,2), 'K41*QiHVACCal:', round(K41*QiHVACCal,2), flush = True)
 			
 			TaCaseOFF = (1- (deltaT/3600) * ((Ua+Hm)/Ca)) * Ta + (deltaT/3600) * (Hm/Ca) * Tm + (deltaT/3600) * (Ua/Ca) * To + (deltaT/3600) * (1/ Ca) *((1-fs)*Qs +(1-fi)*Qi)

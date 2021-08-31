@@ -1,10 +1,10 @@
-**# DistributionSystem**
+**# DistributionSystemV1.0**
 
 This site gathers together ITD Project work on the modeling of distribution systems relevant for the modeling of Integrated Transmission and Distribution (ITD) systems.
 
 The code/data in this repository are provided in support of ITD TES Platform that is developed as part of our ITD project. The details of this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
 
-Currently, this repository is only supported on a Windows operating system.
+Currently, DistributionSystemV1.0 is only supported on a Windows operating system.
 
 **Installation Instructions:**
 

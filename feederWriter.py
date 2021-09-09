@@ -6,7 +6,7 @@ import math
 import os
 
 FeederFolder= "IEEE123"
-FeederPath = './Feeder/' + FeederFolder + "/"
+FeederPath = './feeder/' + FeederFolder + "/"
 
 InputFilesFolder = "./inputFiles/"
 if not os.path.exists(InputFilesFolder):

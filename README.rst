@@ -95,7 +95,7 @@ Currently, this repository is only supported on a Windows operating system.
    
    * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   Example usage: python AgentPrep.py IEEEModified1 1 1
+   Example usage: python AgentPrep.py IEEE123FeederModified1 1 1
     		
    Outcomes: 
    

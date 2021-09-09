@@ -22,7 +22,7 @@ JsonPath = os.path.join(InputFilesFolder,JsonFolder)
 if not os.path.exists(JsonPath):
     os.makedirs(JsonPath)
 
-HousePath = './householdGER/'
+HousePath = './GER/household/'
 HouseController = 'houseController'
 
 if len(sys.argv) == 8:

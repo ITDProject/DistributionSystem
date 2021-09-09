@@ -71,7 +71,7 @@ Currently, this repository is only supported on a Windows operating system.
 	   
    * TxBus - The transmission bus to which the distribution system is considered to be connected. (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   Example usage: python FeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1;
+   Example usage: python feederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1;
    
    Outcomes:
    

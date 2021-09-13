@@ -1,10 +1,10 @@
 **# DistributionSystem**
 
-This site gathers together ITD Project work on the modeling of distribution systems relevant for the modeling of Integrated Transmission and Distribution (ITD) systems.
+This site provides distribution system code/data relevant for the study of Integrated Transmission and Distribution (ITD) system operations over successive days.
 
-The code/data in this repository are provided in support of ITD TES Platform that is developed as part of our ITD project. The details of this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
+This distribution system code/data is specifically being used for the ITD TES Platform V2.XX (and later), a co-simulated platform for the modeling and study of Transactive Energy System (TES) designs implemented within ITD Systems.  This platform has been developed as part of our ITD project work.  Details about this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
 
-Currently, this repository is only supported on a Windows operating system.
+Currently, the distribution code provided this repository is only supported on a Windows operating system.
 
 **Installation Instructions:**
 
@@ -142,5 +142,5 @@ Currently, this repository is only supported on a Windows operating system.
    
 **Miscellaneous Notes:** 
 
-* User can end the simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all the processes. If you perform 'kill5570.bat', make sure to run 'list5570.bat' shows no process before executing another 'runIDSO.bat' operation. 
-* Note for developers: For 'import fncs' to work, the environmental variable $PATH needs to be appended to add location of 'fncs.py'.
+* Users can end a simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all currently running processes. If you perform 'kill5570.bat', you should next run 'list5570.bat' to make sure it shows no process is running before you execute another 'runIDSO.bat' operation. 
+* Note for developers: For 'import fncs' to work, the environmental variable $PATH needs to be appended to add the location of 'fncs.py'.

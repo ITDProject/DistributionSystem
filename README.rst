@@ -4,7 +4,7 @@ This site provides distribution system code/data relevant for the study of Integ
 
 This distribution system code/data is specifically being used for the ITD TES Platform V2.XX (and later), a co-simulated platform for the modeling and study of Transactive Energy System (TES) designs implemented within ITD Systems.  This platform has been developed as part of our ITD project work.  Details about this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
 
-Currently, the distribution code provided this repository is only supported on a Windows operating system.
+Currently, the distribution code provided in this repository is only supported on a Windows operating system.
 
 **Installation Instructions:**
 

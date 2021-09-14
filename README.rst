@@ -6,6 +6,13 @@ The code/data in this repository are provided in support of ITD TES Platform tha
 
 DistributionSystemV1.0 is only supported on a Windows operating system.
 
+The contents of AMES repository is organized in various folders as follows:
+
+* GER: Different type of GER models are located in this folder.
+* IDSO: IDSO model files are located here.
+* feeder: Various input test feeder files are located here.
+* weather: Input weather files are located here.
+
 **Installation Instructions:**
 
 #. Install Python

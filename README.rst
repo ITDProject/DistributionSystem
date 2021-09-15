@@ -149,5 +149,5 @@ The contents of AMES repository is organized in various folders as follows:
    
 **Miscellaneous Notes:** 
 
-* User can end the simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all the processes. If you perform 'kill5570.bat', make sure to run 'list5570.bat' shows no process before executing another 'runIDSO.bat' operation. 
-* Note for developers: For 'import fncs' to work, the environmental variable $PATH needs to be appended to add location of 'fncs.py'.
+* Users can end a simulation run in the middle of the run by executing 'kill5570.bat'. Executing 'list5570.bat' lists all currently running processes. If you perform 'kill5570.bat', you should next run 'list5570.bat' to make sure it shows no process is running before you execute another 'runIDSO.bat' operation. 
+* Note for developers: For 'import fncs' to work, the environmental variable $PATH needs to be appended to add the location of 'fncs.py'.

@@ -93,7 +93,7 @@ Currently, the distribution code provided in this repository is only supported o
    
    * NDistSys - The number of distribution systems that are handled by the IDSO
    
-   * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
+   * TxBus - The transmission bus to which the distribution system is considered to be connected. (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
    Example usage: python agentPreparation.py IEEE123FeederModified1 1 1
     		

@@ -4,14 +4,13 @@ This site provides distribution system code/data relevant for the study of Integ
 
 This distribution system code/data is specifically being used for the ITD TES Platform V2.XX (and later), a co-simulated platform for the modeling and study of Transactive Energy System (TES) designs implemented within ITD Systems.  This platform has been developed as part of our ITD project work.  Details about this project can be found at http://www2.econ.iastate.edu/tesfatsi/ITDProjectHome.htm
 
-DistributionSystemV1.0 is only supported on a Windows operating system.
+Distribution System V1.0 is only supported on a Windows operating system.
 
 The contents of AMES repository is organized in various folders as follows:
 
-* GER: Different type of GER models are located in this folder.
-* IDSO: IDSO model files are located here.
-* feeder: Various input test feeder files are located here.
-* weather: Input weather files are located here.
+* GER: Different types of Grid-Edge Resource (GER) models are located in this folder.
+* IDSO: Different types of Independent Distribution System Operator (IDSO) model files are located in this folder.
+* weather: Different types of weather input files are located in this folder.
 
 **Installation Instructions:**
 

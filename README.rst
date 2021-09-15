@@ -76,7 +76,7 @@ The contents of AMES repository is organized in various folders as follows:
      
      * Set Type to 3 for High Structure Quality Type;
 	   
-   * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
+   * TxBus - The transmission bus to which the distribution system is considered to be connected. (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
    Example usage: python FeederWriter.py IEEE123Feeder.glm IEEE123LoadObjects.txt 1 0 2 1;
    
@@ -102,7 +102,7 @@ The contents of AMES repository is organized in various folders as follows:
    
    * TxBus - The transmission bus to which the distribution system is considered to be connected to (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   Example usage: python AgentPrep.py IEEEModified1 1 1
+   Example usage: python agentPreparation.py IEEEModified1 1 1
     		
    Outcomes: 
    

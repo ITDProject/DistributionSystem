@@ -10,6 +10,7 @@ The contents of this branch are organized into various folders, as follows:
 
 * GER: Different types of Grid-Edge Resource (GER) models are located in this folder.
 * IDSO: Different types of Independent Distribution System Operator (IDSO) model files are located in this folder.
+* distributionGrid: Different types of distribution grid model files are located in this folder.
 * weather: Different types of weather input files are located in this folder.
 
 **Installation Instructions:**

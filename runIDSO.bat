@@ -11,7 +11,7 @@ set PlotFilesDir=%OutputFilesDir%\plotFiles
 set "NDay=2"
 set "NHour=4"
 set "deltaT=300"
-set "NoOfHouseholds=4"
+set "NoOfHouseholds=927"
 set "NDistSys=1"
 set "FileName=IEEE123Grid"
 set /a "tmax=%NDay%*86400+%NHour%*3600"
@@ -43,7 +43,7 @@ set FNCS_CONFIG_FILE=%DSYAMLFilesDir%/IDSO.yaml
 start /b cmd /c python ./IDSO/IDSO.py %DSJsonFilesDir%/IDSO_registration.json %tmax% %deltaT% %NDistSys% %C% %FRP% %PL% %TPLR% %RefLoad% ^>%LogFilesDir%/IDSO.log 2^>^&1
 
 set FNCS_LOG_LEVEL=DEBUG2
-FOR /L %%i IN (1,1,%NDistSys%) DO start /b cmd /c gridlabd %DSInputFilesDir%/%DistFeederFileName%Modified%%i.glm ^>%LogFilesDir%/gridlabd%%i.log 2^>^&1
+FOR /L %%i IN (1,1,%NDistSys%) DO start /b cmd /c gridlabd %DSInputFilesDir%/%FileName%Modified%%i.glm ^>%LogFilesDir%/gridlabd%%i.log 2^>^&1
 
 set FNCS_LOG_LEVEL=
 runHouseholds927.bat

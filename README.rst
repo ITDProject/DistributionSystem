@@ -52,7 +52,7 @@ The contents of this branch are organized into various folders, as follows:
 
 #. Generate distribution grid populated with households with the choice of 'Household Type' by executing the following:
 
-   python feederWriter.py FileName LoadFileName NDistSys Mix Type TxBus
+   python generateModifiedGrid.py FileName LoadFileName NDistSys Mix Type TxBus
    
    The above commands depend on the following user-specified parameters: 
    
@@ -78,7 +78,7 @@ The contents of this branch are organized into various folders, as follows:
 	   
    * TxBus - The transmission bus to which the distribution system is considered to be connected. (Note: This input is needed if this model is used within an ITD system, else it defaults to 1)
    
-   Example usage: python feederWriter.py IEEE123Grid.glm IEEE123LoadObjects.txt 1 0 2 1;
+   Example usage: python generateModifiedGrid.py IEEE123Grid.glm IEEE123LoadObjects.txt 1 0 2 1;
    
    Outcomes:
    

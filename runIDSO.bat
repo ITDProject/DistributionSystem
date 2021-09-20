@@ -1,6 +1,5 @@
 set DSDir=C:\Users\swathi\Dropbox\ITDTESPlatform\DistributionSystem
 
-set DistFeederDir=%DSDir%\feeder\IEEE123
 set DSInputFilesDir=%DSDir%\inputFiles
 set DSJsonFilesDir=%DSInputFilesDir%\jsonFiles
 set DSYAMLFilesDir=%DSInputFilesDir%\yamlFiles
@@ -12,7 +11,7 @@ set PlotFilesDir=%OutputFilesDir%\plotFiles
 set "NDay=2"
 set "NHour=4"
 set "deltaT=300"
-set "NoOfHouseholds=927"
+set "NoOfHouseholds=4"
 set "NDistSys=1"
 set "DistFeederFileName=IEEE123Feeder"
 set /a "tmax=%NDay%*86400+%NHour%*3600"

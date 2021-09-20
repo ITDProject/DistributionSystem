@@ -5,8 +5,9 @@ import yaml
 import math
 import os
 
+FeederType = "radialFeeder"
 FeederFolder= "IEEE123"
-FeederPath = './feeder/' + FeederFolder + "/"
+FeederPath = './distributionGrid/' + FeederType + "/" + FeederFolder + "/"
 
 InputFilesFolder = "./inputFiles/"
 if not os.path.exists(InputFilesFolder):

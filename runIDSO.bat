@@ -13,7 +13,7 @@ set "NHour=4"
 set "deltaT=300"
 set "NoOfHouseholds=4"
 set "NDistSys=1"
-set "DistFeederFileName=IEEE123Feeder"
+set "FileName=IEEE123Grid"
 set /a "tmax=%NDay%*86400+%NHour%*3600"
 set /a "NoOfProcesses=%NoOfHouseholds%+%NDistSys%+1"
 

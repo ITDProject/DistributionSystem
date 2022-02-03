@@ -12,3 +12,5 @@ The contents of the main branch for the DistributionSystem repository are organi
 * IDSO: Different types of Independent Distribution System Operator (IDSO) model files are located in this folder.
 * distributionGrid: Different types of distribution grid model files are located in this folder.
 * weather: Different types of weather input files are located in this folder.
+
+The released versions of the code can be found at https://github.com/ITDProject/DistributionSystem/releases.
